@@ -6,7 +6,6 @@ load_dotenv()
 op = os.getenv("open_api")
 
 def fetch_llm_response(compose_content, query):
-    print(compose_content)
     client = OpenAI(api_key=op)
     full_text = ""
     response = client.chat.completions.create(
