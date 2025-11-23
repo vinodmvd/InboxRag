@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Finance RAG Bot Chat</title>
+    <link rel="stylesheet" href="../static/style.css" />
+    <link rel="shortcut icon" href="../static/Frame.png">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <script src="../static/script.js" defer></script>
+</head>
+
+<body>
+    <div class="main-bg">
+        <div class="chat-widget-wavy">
+            <header class="chat-header">
+                <div class="header-text">
+                    <span class="agent-name">Chat with InboxRAG</span>
+                    <span class="sub-title">(Finance Query Bot)</span>
+                </div>
+            </header>
+            <!-- Wavy SVG right below the header -->
+            <svg class="wavy-border" viewBox="0 0 350 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none">
+                <path d="M0 8 Q35 16 70 8 T140 8 T210 8 T280 8 T350 8 V16 H0 V8Z" fill="#f5f9ff" />
+            </svg>
+            <div id="chat-box" class="chat-box empty">
+                <div class="chat-placeholder">
+                    <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
+                        <rect x="15" y="30" width="60" height="40" rx="10" fill="#e5eff9" />
+                        <circle cx="45" cy="50" r="10" fill="#c8d6e7" />
+                        <rect x="43" y="48" width="4" height="8" fill="#b1bed1" />
+                    </svg>
+                    <div class="placeholder-text">
+                        Your Bill Mail assistant.<br />
+                        Ask your credit card questions!
+                    </div>
+                </div>
+            </div>
+
+
+            <form id="chat-form" class="chat-form">
+                <!--<input type="text" id="user-input" placeholder="Enter your message..." autocomplete="off" required />-->
+                <textarea id="user-input" placeholder="Enter your message..." autocomplete="off" required
+                    rows="2"></textarea>
+                <button type="submit" title="Send">
+                    <svg width="28" height="28" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="12" fill="#1863b0" />
+                        <polygon points="10,8 18,12 10,16" fill="#fff" />
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
