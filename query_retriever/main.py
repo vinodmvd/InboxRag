@@ -7,8 +7,7 @@ from textblob import TextBlob
 
 load_dotenv()
 index = os.getenv('index')
-namespace = os.getenv('nameslpace')
-print(index,namespace)
+namespace = os.getenv('namespace')
 def respond_query(getquery, embedding_manager):
     query_validation = str(TextBlob(getquery).correct())
     embedding = embedding_manager.generate_embeddings(query_validation)
