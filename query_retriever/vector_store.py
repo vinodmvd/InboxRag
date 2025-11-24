@@ -7,8 +7,6 @@ load_dotenv()
 
 
 pi = os.getenv("pine_api")
-raw_prompt = os.getenv("input_prompt")
-input_prompt = raw_prompt.replace('\\n', '\n') if raw_prompt else ""
 
 def search_vector(query, embedding, indexname, namespace):
     load_pine = Pinecone(api_key=pi)

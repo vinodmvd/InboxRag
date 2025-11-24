@@ -4,14 +4,17 @@ from dotenv import load_dotenv
 load_dotenv()
 
 op = os.getenv("open_api")
+with open("prompt.txt", "r", encoding="utf-8") as f:
+    input_prompt = f.read()
 
 def fetch_llm_response(compose_content, query):
     client = OpenAI(api_key=op)
     full_text = ""
+    print(f'{input_prompt}\n{compose_content}')
     response = client.chat.completions.create(
         model='gpt-4o-mini',
         messages=[
-            {'role': 'system', 'content': f'{compose_content}'},
+            {'role': 'system', 'content': f'{input_prompt}\n{compose_content}'},
             {'role': 'user', 'content': f'{query}'}
         ],
         stream=True,

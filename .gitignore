@@ -3,3 +3,4 @@ data_ingestion/token.json
 data_ingestion/__pycache__/
 query_retriever/__pycache__/
 .env
+prompt.txt
