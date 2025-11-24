@@ -1,5 +1,6 @@
 from pinecone import Pinecone
 import filter_retriever
+import reranker
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -15,11 +16,11 @@ def search_vector(query, embedding, indexname, namespace):
     index = load_pine.Index(pine_index_name)
     months, years = filter_retriever.find_months_and_years(query.title())
     if not months and not years:
-        query_output_content = index.query(vector=embedding, top_k=5, namespace=f'{namespace}', include_metadata=True)
+        query_output_content = index.query(vector=embedding, top_k=25, namespace=f'{namespace}', include_metadata=True)
+        content_reranker = [data.metadata['chunk_text'] for data in query_output_content.matches]
+        compose_content = reranker.rerank_data(content_reranker, query)
     else:
         query_output_content = index.query(vector=embedding, top_k=5, namespace=f'{namespace}', filter={'months' : {'$in': months}, 'years' : {'$in' : years} }, include_metadata=True)
+        compose_content = [data.metadata['chunk_text'] for data in query_output_content.matches]
     
-    compose_content = []
-    for data in query_output_content.matches:
-        compose_content.append(f"{data.metadata['chunk_text']}{input_prompt}")
     return compose_content
