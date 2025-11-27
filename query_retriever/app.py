@@ -1,4 +1,4 @@
-from flask import Flask, Response, stream_with_context, render_template, request, jsonify
+from flask import Flask, Response, stream_with_context, render_template, request
 import generate_embeddings
 import main
 

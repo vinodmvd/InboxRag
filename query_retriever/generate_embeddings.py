@@ -1,4 +1,8 @@
 from sentence_transformers import SentenceTransformer
+from logger_config import get_logger,initialize_log_config
+
+initialize_log_config()
+logger = get_logger(__name__)
 
 class EmbeddingManager:
 
@@ -8,12 +12,12 @@ class EmbeddingManager:
         self._load_embedding_model()
     
     def _load_embedding_model(self):
-        # print('Initializing Model for embeddings!')
+        logger.info('Loading embedding model..')
         self.load_model = SentenceTransformer('all-miniLM-L6-V2')
-        print(f'Model: {self.model} Initialized')
+        logger.info(f'Model Initiated: {self.model}')
 
     def generate_embeddings(self, texts):
         embedding_data_gen = self.load_model.encode(texts)
         embedding_data_gen = embedding_data_gen.tolist()
-        # print(f'Total embedded data: {len(embedding_data_gen)}')
+        logger.info(f'Documents embedded: {len(texts)}')
         return embedding_data_gen
