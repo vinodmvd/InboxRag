@@ -40,8 +40,10 @@ InboxRag is an automated Retrieval-Augmented Generation (RAG) pipeline that conn
 
 ## Project Structure
 
+```
 InboxRag
 ├─ data_ingestion # Gmail fetch, PDF parsing, chunking, and embedding storage pipeline
 ├─ query_retriever # Query handling, vector retrieval, and LLM answer generation pipeline
 ├─ .gitignore
 └─ README.md
+```
