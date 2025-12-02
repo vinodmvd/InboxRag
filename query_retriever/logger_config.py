@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 #Initialize env vars
 load_dotenv()
 level = os.getenv('log_code')
-logger_code= getattr(logging, level)
+logger_code = getattr(logging, level)
 
 def initialize_log_config():
     logging.basicConfig(
