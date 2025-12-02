@@ -1,4 +1,4 @@
-query_retriever/dockerFile_detailed
+query_retriever/dockerfile_detailed
 __pycache__/
 .env
 prompt.txt
