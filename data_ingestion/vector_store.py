@@ -1,10 +1,14 @@
 from pinecone import Pinecone,ServerlessSpec
-from secret import pinecone as pi
 import filter_retriever
 import time
+import os
+from dotenv import load_dotenv
+
+#initialize Env variables
+pine_api = os.getenv('pine_api')
 
 def embeddings_to_vector_store(embedding_data, texts, indexname, namespace):
-    load_pine = Pinecone(api_key=pi)
+    load_pine = Pinecone(api_key=pine_api)
 
     # Index creation on pinecone
     pine_index_name = f'{indexname}'
@@ -39,7 +43,7 @@ def embeddings_to_vector_store(embedding_data, texts, indexname, namespace):
     print(f'Final Stats:\nInitial-Count: {initial_stat_count}\nNew-Inserts: {len(texts)}\nFinal-Count: {post_stat_count}\n')
 
 def delete_vector(indexname):
-    load_pine = Pinecone(api_key=pi)
+    load_pine = Pinecone(api_key=pine_api)
     if load_pine.has_index(indexname):
         load_pine.delete_index(indexname)
         print(f'Index {indexname} is successfully removed')

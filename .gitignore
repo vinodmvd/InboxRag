@@ -1,6 +1,5 @@
-data_ingestion/credentials.json
-data_ingestion/token.json
-data_ingestion/__pycache__/
-query_retriever/__pycache__/
+query_retriever/DockerFile_detailed
+__pycache__/
 .env
 prompt.txt
+*.json
