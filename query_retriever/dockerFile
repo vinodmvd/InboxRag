@@ -1,0 +1,31 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+ENV open_api=''
+
+ENV pine_api=''
+
+ENV cohere_api=''
+
+ENV index=''
+
+ENV namespace=''
+
+ENV log_code='INFO'
+
+RUN pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+RUN pip install sentence-transformers==5.1.2
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+RUN pip install --no-cache-dir transformers==4.57.1
+
+COPY . .
+
+EXPOSE 7899
+
+CMD ["gunicorn", "-w", "1", "-b", "0.0.0.0:7899", "app:app"]
