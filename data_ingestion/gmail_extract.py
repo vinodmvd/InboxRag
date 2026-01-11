@@ -43,8 +43,6 @@ def get_creds():
       
   return creds
 
-
-
 def clean_cid_patterns(text):
     # Remove (cid:number) or (cid:word) patterns
     cleaned_text = re.sub(r'\(cid:[^)]*\)', '', text)
@@ -120,6 +118,7 @@ def get_attachments(service, message_ids, docpass):
     print(f'{idx} pdfs are processed')
     return attachments
 
+#Used for personal PDF extraction
 def trim_pdf(content):
     for details in content:
         trim_words = 'MOST IMPORTANT TERMS AND CONDITIONS (MITC)'
@@ -129,8 +128,6 @@ def trim_pdf(content):
         else:
             pass
     return content
-        
-         
 
 def main(docpass,subjectname):
     creds = get_creds()

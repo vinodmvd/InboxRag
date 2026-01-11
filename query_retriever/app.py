@@ -1,7 +1,7 @@
 from flask import Flask, Response, stream_with_context, render_template, request
-import generate_embeddings
-import main
 
+from query_retriever import generate_embeddings
+from query_retriever import main
 
 app = Flask(__name__)
 

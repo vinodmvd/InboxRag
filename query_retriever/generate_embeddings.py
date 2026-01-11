@@ -1,5 +1,6 @@
 from sentence_transformers import SentenceTransformer
-from logger_config import get_logger,initialize_log_config
+
+from query_retriever.logger_config import get_logger,initialize_log_config
 
 initialize_log_config()
 logger = get_logger(__name__)

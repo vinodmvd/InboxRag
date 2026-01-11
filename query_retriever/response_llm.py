@@ -1,11 +1,16 @@
 from openai import OpenAI
 import os
+from pathlib import Path
+
 from dotenv import load_dotenv
 load_dotenv()
 
 #Env vars
 op = os.getenv("open_api")
-with open("prompt.txt", "r", encoding="utf-8") as f:
+
+base_dir = Path(__file__).resolve().parents[1]/'prompt.txt'
+
+with open(base_dir, "r", encoding="utf-8") as f:
     input_prompt = f.read()
 
 def fetch_llm_response(compose_content, query):
