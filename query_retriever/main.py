@@ -1,4 +1,4 @@
-from dotenv import load_dotenv
+
 import os
 
 from textblob import TextBlob
@@ -8,7 +8,6 @@ import query_retriever.response_llm as response_llm
 from query_retriever.logger_config import initialize_log_config,get_logger
 
 #Initialize env values
-load_dotenv()
 index = os.getenv('index')
 namespace = os.getenv('namespace')
 

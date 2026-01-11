@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 from flask import Flask, Response, stream_with_context, render_template, request
 
 from query_retriever import generate_embeddings

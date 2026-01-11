@@ -1,7 +1,5 @@
 import cohere
 import os
-from dotenv import load_dotenv
-load_dotenv
 
 def rerank_data(content, query):
     cohere_api = os.getenv('cohere_api')
