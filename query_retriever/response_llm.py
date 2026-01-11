@@ -8,7 +8,7 @@ load_dotenv()
 #Env vars
 op = os.getenv("open_api")
 
-base_dir = Path(__file__).resolve().parents[1]/'prompt.txt'
+base_dir = Path(__file__).resolve().parent/'prompt.txt'
 
 with open(base_dir, "r", encoding="utf-8") as f:
     input_prompt = f.read()
