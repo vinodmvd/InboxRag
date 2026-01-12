@@ -79,6 +79,7 @@ def user_query(query):
         }            
     }]
     
+    logger.info(f"User query: {query}")
     
     messages = [
         {"role" : "user", "content" : query},
@@ -92,9 +93,6 @@ def user_query(query):
         tool_choice="auto"
     )
     
-    # ChatCompletion(id='chatcmpl-Cx66TYfK4wPuPGHMFuDbcHSOvkSU2', choices=[Choice(finish_reason='tool_calls', index=0, logprobs=None, message=ChatCompletionMessage(content=None, refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=[ChatCompletionMessageFunctionToolCall(id='call_oiM8Bw8Fy5lsi79B6pSKo6wF', function=Function(arguments='{"top_k":5,"validated_query":"bill for January 2024","filter":{"months":{"$eq":"January"},"years":{"$eq":2024}}}', name='filter_search'), type='function')]))], created=1768200849, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_29330a9688', usage=CompletionUsage(completion_tokens=44, prompt_tokens=382, total_tokens=426, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
-    
-    print(response)
     if response.choices[0].message.tool_calls:
         for tool in response.choices[0].message.tool_calls:
             function_name = tool.function.name
