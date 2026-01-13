@@ -2,9 +2,6 @@ from openai import OpenAI
 import os
 from pathlib import Path
 
-from dotenv import load_dotenv
-load_dotenv()
-
 #Env vars
 op = os.getenv("open_api")
 

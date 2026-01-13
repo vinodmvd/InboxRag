@@ -1,13 +1,12 @@
 from pinecone import Pinecone, NotFoundException
 
 import os
-from dotenv import load_dotenv
-load_dotenv()
 pi = os.getenv("pine_api")
 
 from query_retriever import filter_retriever
 from query_retriever import reranker
 from query_retriever.logger_config import initialize_log_config, get_logger
+
 initialize_log_config()
 logger = get_logger(__name__)
 
