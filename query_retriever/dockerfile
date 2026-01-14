@@ -29,4 +29,5 @@ COPY . ./query_retriever
 
 EXPOSE 7899
 
-CMD ["gunicorn", "-w", "1", "-b", "0.0.0.0:7899", "query_retriever.app:app"]
+# CMD ["gunicorn", "-w", "1", "-b", "0.0.0.0:7899", "query_retriever.app:app"]
+CMD ["uvicorn", "query_retriever.app_v2:app", "--host",  "0.0.0.0", "--port", "7899"]
