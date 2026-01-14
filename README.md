@@ -38,6 +38,13 @@ InboxRag is an automated Retrieval-Augmented Generation (RAG) pipeline that conn
 
 ---
 
+##Missing files from GIT, that are required to be added. 
+
+1. query_retriever/prompt.txt -> Required for the Final LLM's Instructions as a system prompt. 
+2. query_retriever/agent/system_prompt.py -> Required for the controller agent instruction as a system prompt.
+
+---
+
 ## Project Structure
 
 ```
