@@ -1,8 +1,6 @@
 from pinecone import Pinecone,ServerlessSpec
-import filter_retriever
 import time
 import os
-from dotenv import load_dotenv
 
 #initialize Env variables
 pine_api = os.getenv('pine_api')
